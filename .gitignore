@@ -31,7 +31,6 @@ dist/
 /media/
 /node_modules/
 /static/
-idea
 
 # Environments
 .env
