@@ -258,6 +258,7 @@ def send_webhook_request_async(self, event_delivery_id):
     attempt = create_attempt(delivery, self.request.id)
     delivery_status = EventDeliveryStatus.SUCCESS
     try:
+        task_logger.info(data)
         with webhooks_opentracing_trace(
             delivery.event_type, domain, app_name=webhook.app.name
         ):
