@@ -9,7 +9,7 @@
         "type": "git",
         "url": "git://github.com/saleor/saleor.git"
     },
-    "author": "von Affenfels GmbH",
+    "author": "vonAffenfels GmbH",
     "license": "BSD-3-Clause",
     "bugs": {
         "url": "https://github.com/saleor/saleor/issues"
