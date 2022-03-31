@@ -191,6 +191,7 @@ def send_email(
 
     from_email = str(Address(sender_name, addr_spec=sender_address))
 
+    print(config)
     email_backend = EmailBackend(
         host=config.host,
         port=config.port,
@@ -212,6 +213,9 @@ def send_email(
     }
     message = template(context, helpers=helpers)
     subject_message = subject_template(context, helpers)
+    print(subject_message)
+    print(html2text.html2text(message))
+    print(from_email)
     send_mail(
         subject_message,
         html2text.html2text(message),
