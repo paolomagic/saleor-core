@@ -186,7 +186,7 @@ def price(this, net_amount, gross_amount, currency, display_gross=False):
 def send_email(
     config: EmailConfig, recipient_list, context, subject="", template_str=""
 ):
-    sender_name = config.sender_name or ""
+    sender_name = config.sender_name or "DKS"
     sender_address = config.sender_address
 
     from_email = str(Address(sender_name, addr_spec=sender_address))
@@ -201,6 +201,7 @@ def send_email(
         use_tls=config.use_tls,
         timeout=DEFAULT_EMAIL_TIMEOUT,
     )
+    print(email_backend)
     compiler = pybars.Compiler()
     template = compiler.compile(template_str)
     subject_template = compiler.compile(subject)
