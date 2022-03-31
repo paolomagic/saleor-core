@@ -191,7 +191,6 @@ def send_email(
 
     from_email = str(Address(sender_name, addr_spec=sender_address))
 
-    print(config)
     email_backend = EmailBackend(
         host=config.host,
         port=config.port,
@@ -201,7 +200,7 @@ def send_email(
         use_tls=config.use_tls,
         timeout=DEFAULT_EMAIL_TIMEOUT,
     )
-    print(email_backend)
+
     compiler = pybars.Compiler()
     template = compiler.compile(template_str)
     subject_template = compiler.compile(subject)
@@ -214,9 +213,14 @@ def send_email(
     }
     message = template(context, helpers=helpers)
     subject_message = subject_template(context, helpers)
+
+
+    print(config)
     print(subject_message)
     print(from_email)
     print(recipient_list)
+
+
     send_mail(
         subject_message,
         html2text.html2text(message),
